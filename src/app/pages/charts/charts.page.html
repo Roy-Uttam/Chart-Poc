@@ -6,9 +6,7 @@
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <!-- <ion-title size="large">charts</ion-title> -->
-    </ion-toolbar>
+    <ion-toolbar> </ion-toolbar>
   </ion-header>
 
   <ion-grid>
@@ -17,39 +15,31 @@
         <ion-card>
           <ion-card-header>
             <ion-card-title>Stats</ion-card-title>
-            <!-- <ion-card-subtitle>Card Subtitle</ion-card-subtitle> -->
           </ion-card-header>
 
           <ion-card-content>
-            <div class="border-solid border-2 border-teal-500 mb-4 ml-4">
-              <a
-                href="#"
-                class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
-              >
+            <div class="border border-teal-200 rounded-lg flex mb-6">
+              <div class="m-4 rounded-lg p-3 bg-teal-50">
                 <img
-                  class="h-auto max-w-xs"
+                  class="m-2"
                   src="https://img.icons8.com/wired/64/building.png"
-                  alt="building"
                 />
-                <div class="flex flex-col justify-between p-4 leading-normal">
-                  <h4>Assets</h4>
-                  <!-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    123
-                  </p>
-                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    total assets
-                  </p> -->
-                  <!-- <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    97%
-                  </p>
-                  <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
-                    Inspected assets
-                  </p> -->
+              </div>
+
+              <div class="m-4">
+                <div class="">
+                  <span class="font-bold text-2xl">Assets</span>
                 </div>
-              </a>
+                <div class="space-x-4">
+                  <span class="text-7xl text-teal-400">123</span>
+                  <span class=""> Total assets</span>
+                  <span class="text-7xl text-teal-400">79%</span>
+                  <span class=""> Inspected assets</span>
+                </div>
+              </div>
             </div>
 
-            <div class="flex space-x-4">
+            <div class="flex mb-8 space-x-8">
               <span
                 class="inline-flex items-center rounded-md px-2 py-1 text-xs font-bold text-gray-600"
                 >LEGENDS:</span
@@ -71,6 +61,98 @@
 
             <div class="chart-container">
               <canvas id="MyChart">{{ chart }}</canvas>
+            </div>
+
+            <div
+              class="w-full space-x-8 flex p-4 mt-8 text-center bg-white border border-teal-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+            >
+              <!-- progres -->
+              <div class="relative w-32 h-32">
+                <div class="absolute inset-0">
+                  <!-- Background circle -->
+                  <div
+                    class="border-2 border-gray-300 rounded-full w-full h-full"
+                  ></div>
+                </div>
+
+                <div class="absolute inset-0">
+                  <!-- Progress circle (using conic gradient) -->
+                  <div
+                    id="progress-circle"
+                    class="conic-gradient h-full w-full"
+                  ></div>
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <!-- Content in the center of the radial progress bar -->
+                  <span
+                    id="progress-text"
+                    class="text-lg font-semibold text-gray-700"
+                    >0%</span
+                  >
+                </div>
+              </div>
+              <div class="relative w-32 h-32">
+                <div class="absolute inset-0">
+                  <!-- Background circle -->
+                  <div
+                    class="border-2 border-gray-300 rounded-full w-full h-full"
+                  ></div>
+                </div>
+
+                <div class="absolute inset-0">
+                  <!-- Progress circle (using conic gradient) -->
+                  <div
+                    id="progress-circle"
+                    class="conic-gradient h-full w-full"
+                  ></div>
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <!-- Content in the center of the radial progress bar -->
+                  <span
+                    id="progress-text"
+                    class="text-lg font-semibold text-gray-700"
+                    >0%</span
+                  >
+                </div>
+              </div>
+              <div class="relative w-32 h-32">
+                <div class="absolute inset-0">
+                  <!-- Background circle -->
+                  <div
+                    class="border-2 border-gray-300 rounded-full w-full h-full"
+                  ></div>
+                </div>
+
+                <div class="absolute inset-0">
+                  <!-- Progress circle (using conic gradient) -->
+                  <div
+                    id="progress-circle"
+                    class="conic-gradient h-full w-full"
+                  ></div>
+                </div>
+
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <!-- Content in the center of the radial progress bar -->
+                  <span
+                    id="progress-text"
+                    class="text-lg font-semibold text-gray-700"
+                    >0%</span
+                  >
+                </div>
+              </div>
+
+              <!-- <div class="container">
+                <div class="box" style="--i: 2%; --clr: #ffbc11">
+                  <div class="circle">
+                    <h2>60<small>%</small></h2>
+                  </div>
+                  <h3>html</h3>
+                </div>
+              </div> -->
+              
+              <!-- close -->
             </div>
           </ion-card-content>
         </ion-card>

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import Chart from 'chart.js/auto';
+import { interval, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-charts',
@@ -14,13 +15,13 @@ import Chart from 'chart.js/auto';
 export class ChartsPage implements OnInit {
   constructor() {}
   public chart: any;
-
+  progress: number = 0;
+  conicGradient: string = '';
   createChart() {
     this.chart = new Chart('MyChart', {
-      type: 'bar', //this denotes tha type of chart
+      type: 'bar',
 
       data: {
-        // values on X-Axis
         labels: ['sim', 'MM', 'Electrical'],
         datasets: [
           {
@@ -49,9 +50,11 @@ export class ChartsPage implements OnInit {
           },
         ],
       },
+
       options: {
         responsive: true,
-        aspectRatio: 1.5,
+        aspectRatio: 1.8,
+
         plugins: {
           legend: {
             display: false,
@@ -69,6 +72,7 @@ export class ChartsPage implements OnInit {
               dash: [5, 5],
               display: false,
             },
+
             beginAtZero: true,
             min: 0,
             max: 80,
@@ -76,6 +80,7 @@ export class ChartsPage implements OnInit {
               stepSize: 20,
             },
           },
+
           x: {
             grid: {
               display: false,
@@ -88,5 +93,20 @@ export class ChartsPage implements OnInit {
 
   ngOnInit(): void {
     this.createChart();
+    this.updateProgress();
+  }
+
+  updateProgress(): void {
+    const interval = setInterval(() => {
+      this.progress += 10; // Increase progress by 10% (adjust as needed)
+
+      // Update the conic gradient
+      this.conicGradient = `conic-gradient( #68d391 ${this.progress}%, transparent ${this.progress}% 100%)`;
+
+      // Stop when reaching 100%
+      if (this.progress >= 100) {
+        clearInterval(interval);
+      }
+    }, 1000);
   }
 }
