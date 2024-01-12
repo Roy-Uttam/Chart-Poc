@@ -1,0 +1,7 @@
+{
+  "name": "chartpoc",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
