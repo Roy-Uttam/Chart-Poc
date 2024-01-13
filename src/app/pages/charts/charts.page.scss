@@ -1,10 +1,20 @@
-// .container .box .circle {
-//   width: 150px;
-//   backgroundcolor: conic-gradient(
-//     from 0deg,
-//     var(--clr) 0%,
-//     var(--clr) 0% var(--i),
-//     #333 100%
-//   );
-//   display: flex;
-// }
+
+  .progress-wrapper {
+    position: relative;
+    
+    margin: 20px auto;
+    font-size: 15px;
+  }
+  
+  .current {
+    position: absolute;
+    color: #bbb;
+    font-weight: 100;
+    line-height: 1;
+  }
+  
+  round-progress {
+    margin: auto;
+  }
+  
+  

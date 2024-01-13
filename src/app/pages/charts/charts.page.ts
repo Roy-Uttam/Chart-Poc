@@ -1,22 +1,53 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import Chart from 'chart.js/auto';
-import { interval, Subscription } from 'rxjs';
+import { RoundProgressComponent } from 'angular-svg-round-progressbar';
 
 @Component({
   selector: 'app-charts',
   templateUrl: './charts.page.html',
   styleUrls: ['./charts.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule],
+  imports: [IonicModule, CommonModule, FormsModule,RoundProgressComponent
+
+  ],
 })
 export class ChartsPage implements OnInit {
-  constructor() {}
-  public chart: any;
-  progress: number = 0;
-  conicGradient: string = '';
+
+
+  current = 35;
+  max = 80;
+  radius = 70;
+  semicircle = false;
+  rounded = false;
+  responsive = false;
+  clockwise = true;
+  color = '#FF6E00';
+  background = '#FF6E0033';
+  animation = 'easeOutCubic';
+  animationDelay = 0;
+  animations = [
+    'easeOutCubic',
+  ];
+  gradient = false;
+  realCurrent = 0;
+  getOverlayStyle() {
+    const isSemi = this.semicircle;
+    const transform = (isSemi ? '' : 'translateY(-50%) ') + 'translateX(-50%)';
+    return {
+      top: isSemi ? 'auto' : '50%',
+      bottom: isSemi ? '5%' : 'auto',
+      left: '50%',
+      transform,
+    };
+  }
+
+
+  constructor() {
+  }
+    public chart: any;
   createChart() {
     this.chart = new Chart('MyChart', {
       type: 'bar',
@@ -53,7 +84,7 @@ export class ChartsPage implements OnInit {
 
       options: {
         responsive: true,
-        aspectRatio: 1.8,
+        aspectRatio: 5,
 
         plugins: {
           legend: {
@@ -93,20 +124,6 @@ export class ChartsPage implements OnInit {
 
   ngOnInit(): void {
     this.createChart();
-    this.updateProgress();
   }
 
-  updateProgress(): void {
-    const interval = setInterval(() => {
-      this.progress += 10; // Increase progress by 10% (adjust as needed)
-
-      // Update the conic gradient
-      this.conicGradient = `conic-gradient( #68d391 ${this.progress}%, transparent ${this.progress}% 100%)`;
-
-      // Stop when reaching 100%
-      if (this.progress >= 100) {
-        clearInterval(interval);
-      }
-    }, 1000);
-  }
 }

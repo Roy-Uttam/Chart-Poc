@@ -18,7 +18,7 @@
           </ion-card-header>
 
           <ion-card-content>
-            <div class="border border-teal-200 rounded-lg flex mb-6">
+            <div class="border border-teal-200 rounded-lg flex mb-4">
               <div class="m-4 rounded-lg p-3 bg-teal-50">
                 <img
                   class="m-2"
@@ -64,96 +64,71 @@
             </div>
 
             <div
-              class="w-full space-x-8 flex p-4 mt-8 text-center bg-white border border-teal-200 rounded-lg shadow sm:p-8 dark:bg-gray-800 dark:border-gray-700"
+              class="max-w-sm h-36 w-full border-2 border-green-200 lg:max-w-full lg:flex"
             >
-              <!-- progres -->
-              <div class="relative w-32 h-32">
-                <div class="absolute inset-0">
-                  <!-- Background circle -->
-                  <div
-                    class="border-2 border-gray-300 rounded-full w-full h-full"
-                  ></div>
-                </div>
+          
 
-                <div class="absolute inset-0">
-                  <!-- Progress circle (using conic gradient) -->
-                  <div
-                    id="progress-circle"
-                    class="conic-gradient h-full w-full"
-                  ></div>
-                </div>
+          </div>
 
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <!-- Content in the center of the radial progress bar -->
-                  <span
-                    id="progress-text"
-                    class="text-lg font-semibold text-gray-700"
-                    >0%</span
-                  >
-                </div>
-              </div>
-              <div class="relative w-32 h-32">
-                <div class="absolute inset-0">
-                  <!-- Background circle -->
-                  <div
-                    class="border-2 border-gray-300 rounded-full w-full h-full"
-                  ></div>
-                </div>
+            
+            <div class="grid content-between grid-cols-3">
+              <div class="border-4 border-orange-200 rounded-lg p-4 progress-wrapper">
+                <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}/{{ max }}</div>
+                <round-progress
+                  [current]="current"
+                  [max]="max"
+                  [radius]="50"
 
-                <div class="absolute inset-0">
-                  <!-- Progress circle (using conic gradient) -->
-                  <div
-                    id="progress-circle"
-                    class="conic-gradient h-full w-full"
-                  ></div>
-                </div>
-
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <!-- Content in the center of the radial progress bar -->
-                  <span
-                    id="progress-text"
-                    class="text-lg font-semibold text-gray-700"
-                    >0%</span
-                  >
-                </div>
-              </div>
-              <div class="relative w-32 h-32">
-                <div class="absolute inset-0">
-                  <!-- Background circle -->
-                  <div
-                    class="border-2 border-gray-300 rounded-full w-full h-full"
-                  ></div>
-                </div>
-
-                <div class="absolute inset-0">
-                  <!-- Progress circle (using conic gradient) -->
-                  <div
-                    id="progress-circle"
-                    class="conic-gradient h-full w-full"
-                  ></div>
-                </div>
-
-                <div class="absolute inset-0 flex items-center justify-center">
-                  <!-- Content in the center of the radial progress bar -->
-                  <span
-                    id="progress-text"
-                    class="text-lg font-semibold text-gray-700"
-                    >0%</span
-                  >
-                </div>
-              </div>
-
-              <!-- <div class="container">
-                <div class="box" style="--i: 2%; --clr: #ffbc11">
-                  <div class="circle">
-                    <h2>60<small>%</small></h2>
-                  </div>
-                  <h3>html</h3>
-                </div>
-              </div> -->
-              
-              <!-- close -->
+                  [color]="gradient ? 'url(#gradient)' : color"
+                  [background]="background"
+                  [responsive]="responsive"
+                  />
+              </div> 
+              <div class="border-4 border-orange-200 rounded-lg p-4 progress-wrapper">
+                <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}/{{ max }}</div>
+                <round-progress
+                  [current]="current"
+                  [max]="max"
+                  [radius]="50"
+                  [color]="gradient ? 'url(#gradient)' : color"
+                  [background]="background"
+                  [responsive]="responsive"
+                  />
+              </div> 
+              <div class="border-4 border-orange-200 rounded-lg p-4 progress-wrapper">
+                <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}/{{ max }}</div>
+                <round-progress
+                  [current]="current"
+                  [max]="max"
+                  [radius]="50"
+                  [color]="gradient ? 'url(#gradient)' : color"
+                  [background]="background"
+                  [responsive]="responsive"
+                  />
+              </div> 
             </div>
+
+<!-- 
+            <ion-grid>
+              <ion-row>
+
+                <ion-col> 
+                  
+                  <ion-card class="border-4 rounded-lg border-orange-200" color="light">
+                  
+                    
+
+                    <ion-card-content>  
+                      
+                  </ion-card-content>
+                  </ion-card>
+                  </ion-col>
+                   
+              </ion-row>
+            </ion-grid> -->
+
+
+            
           </ion-card-content>
         </ion-card>
       </ion-col>

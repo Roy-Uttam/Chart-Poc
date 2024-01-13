@@ -4,12 +4,9 @@ export const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'dashboard',
+    redirectTo: 'charts',
   },
-  {
-    path: 'dashboard',
-    loadComponent: () => import('./pages/dashboard/dashboard.page').then( m => m.DashboardPage)
-  },
+
   {
     path: 'charts',
     loadComponent: () => import('./pages/charts/charts.page').then( m => m.ChartsPage)
