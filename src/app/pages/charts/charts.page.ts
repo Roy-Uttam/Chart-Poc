@@ -17,15 +17,22 @@ import { RoundProgressComponent } from 'angular-svg-round-progressbar';
 export class ChartsPage implements OnInit {
 
 
-  current = 35;
+  current1 = 45;
+  current2 = 35;
+  current3 = 60;
+  stroke = 5;
   max = 80;
   radius = 70;
   semicircle = false;
   rounded = false;
   responsive = false;
   clockwise = true;
-  color = '#FF6E00';
-  background = '#FF6E0033';
+  color1 = '#F00014';
+  color2 = '#FF6E00';
+  color3 = '#FFD200';
+  background1 = '#F0001433';
+  background2 = '#FF6E0033';
+  background3 = '#FFD20066';
   animation = 'easeOutCubic';
   animationDelay = 0;
   animations = [
@@ -84,7 +91,7 @@ export class ChartsPage implements OnInit {
 
       options: {
         responsive: true,
-        aspectRatio: 5,
+        aspectRatio: 2.5,
 
         plugins: {
           legend: {

@@ -1,17 +1,9 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <!-- <ion-title>charts</ion-title> -->
-  </ion-toolbar>
-</ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar> </ion-toolbar>
-  </ion-header>
-
+  
   <ion-grid>
     <ion-row>
-      <ion-col size="6">
+      <ion-col size-md="6" size-sm="12">
         <ion-card>
           <ion-card-header>
             <ion-card-title>Stats</ion-card-title>
@@ -63,72 +55,69 @@
               <canvas id="MyChart">{{ chart }}</canvas>
             </div>
 
+            <!-- Findings -->
             <div
-              class="max-w-sm h-36 w-full border-2 border-green-200 lg:max-w-full lg:flex"
-            >
-          
+            class="relative mt-8 max-w-sm h-28 w-full border-2 rounded-lg border-green-200 lg:max-w-full lg:flex">
+              <div class="scale-125 place-items-center p-2 absolute h-12 bg-white left-16 -top-6 lg:max-w-full lg:flex">
+                <span>
+                  Findings (150)
+              </span>
+            </div>
 
           </div>
 
-            
-            <div class="grid content-between grid-cols-3">
-              <div class="border-4 border-orange-200 rounded-lg p-4 progress-wrapper">
-                <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}/{{ max }}</div>
+          <!-- Progress Bar -->
+          <div
+          class="relative max-w-sm h-36 w-full -mb-12 ml-12 border-green-200 lg:max-w-full lg:flex">
+            <div class="grid flex gap-x-12 absolute  -mt-20 grid-cols-3 justify-center">
+              <div class="relative border-4 bg-white border-red-200 w-full rounded-lg flex progress-wrapper">
+                <span class="absolute text-white ml-4 text-center place-items-center h-6 w-20 scale-100 rounded bg-red-500 -mt-4">
+                  Level 1
+                </span>
+                <div class="current" [ngStyle]="getOverlayStyle()">{{ current1 }}/{{ max }}</div>
                 <round-progress
-                  [current]="current"
+                  [current]="current1"
                   [max]="max"
-                  [radius]="50"
-
-                  [color]="gradient ? 'url(#gradient)' : color"
-                  [background]="background"
+                  [radius]="40"
+                  [stroke]="stroke"
+                  [color]="gradient ? 'url(#gradient)' : color1"
+                  [background]="background1"
                   [responsive]="responsive"
                   />
               </div> 
-              <div class="border-4 border-orange-200 rounded-lg p-4 progress-wrapper">
-                <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}/{{ max }}</div>
+              <div class="border-4 bg-white border-orange-200 rounded-lg p-4 progress-wrapper">
+                <span class="absolute text-white text-center place-items-center h-6 w-20 scale-100 rounded bg-orange-400 -mt-8">
+                  Level 2
+                </span>
+                <div class="current" [ngStyle]="getOverlayStyle()">{{ current2 }}/{{ max }}</div>
                 <round-progress
-                  [current]="current"
+                  [current]="current2"
                   [max]="max"
-                  [radius]="50"
-                  [color]="gradient ? 'url(#gradient)' : color"
-                  [background]="background"
+                  [radius]="40"
+                  [stroke]="stroke"
+                  [color]="gradient ? 'url(#gradient)' : color2"
+                  [background]="background2"
                   [responsive]="responsive"
                   />
               </div> 
-              <div class="border-4 border-orange-200 rounded-lg p-4 progress-wrapper">
-                <div class="current" [ngStyle]="getOverlayStyle()">{{ current }}/{{ max }}</div>
+              <div class="border-4 bg-white border-yellow-200 rounded-lg p-4 progress-wrapper">
+                <span class="absolute text-white text-center place-items-center h-6 w-20 scale-100 rounded bg-amber-400 -mt-8">
+                  Level 3
+                </span>
+                <div class="current" [ngStyle]="getOverlayStyle()">{{ current3 }}/{{ max }}</div>
                 <round-progress
-                  [current]="current"
+                  [current]="current3"
                   [max]="max"
-                  [radius]="50"
-                  [color]="gradient ? 'url(#gradient)' : color"
-                  [background]="background"
+                  [radius]="40"
+                  [stroke]="stroke"
+                  [color]="gradient ? 'url(#gradient)' : color3"
+                  [background]="background3"
                   [responsive]="responsive"
                   />
               </div> 
             </div>
+          </div>
 
-<!-- 
-            <ion-grid>
-              <ion-row>
-
-                <ion-col> 
-                  
-                  <ion-card class="border-4 rounded-lg border-orange-200" color="light">
-                  
-                    
-
-                    <ion-card-content>  
-                      
-                  </ion-card-content>
-                  </ion-card>
-                  </ion-col>
-                   
-              </ion-row>
-            </ion-grid> -->
-
-
-            
           </ion-card-content>
         </ion-card>
       </ion-col>
